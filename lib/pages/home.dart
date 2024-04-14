@@ -14,37 +14,40 @@ class _HomeState extends State<Home> {
     final w = MediaQuery.of(context).size.width;
     final h = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text("CARES"),
+        actions: [
+          IconButton(onPressed: (){}, icon: Icon(Icons.shopping_cart)),
+          IconButton(onPressed: (){}, icon: Icon(Icons.person)),
+        ],
+      ),
       body: Container(
         height: h,
         width: w,
         child: ListView(
           children: [
             Container(
-              height: 100,
+              height: 60,
               width: w,
-              child: Row(
-                children: [
-                  Container(
-                    margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                    height: 50,
-                    width: w - 100,
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        hintText: "Search",
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30.0),
-                            borderSide: BorderSide(
-                              color: Colors.white,
-                            )),
-                        filled: true,
-                        fillColor: Colors.white,
-                      ),
-                    ),
-                  ),
-                ],
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: TextFormField(
+                decoration: InputDecoration(
+                  hintText: "Search",
+                  prefixIcon: Icon(Icons.search),
+                  suffixIcon: Icon(Icons.mic),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                      )),
+                  filled: true,
+                  fillColor: Colors.white,
+                ),
               ),
             ),
+            SizedBox(height: 20,),
             Container(
               padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
               height: 300,
@@ -52,14 +55,14 @@ class _HomeState extends State<Home> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text("MOISTURIZERS", style: TextStyle(
+                  const Text("Moisturizers", style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),),
                   SizedBox(height: 10,),
                   SizedBox(
                     height: 250,
-                    child:moisturizerList(),
+                    child:moisturizerList(context),
                   )
                 ],
               ),
@@ -72,14 +75,14 @@ class _HomeState extends State<Home> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text("SUNSCREEN", style: TextStyle(
+                  const Text("Sunscreen", style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),),
                   SizedBox(height: 10,),
                   SizedBox(
                     height: 250,
-                    child:sunScreenList(),
+                    child:sunScreenList(context),
                   )
                 ],
               ),

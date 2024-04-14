@@ -1,76 +1,63 @@
 import 'package:flutter/material.dart';
+import 'package:skincare/pages/DescriptionPage.dart';
 
-Widget listItem(String imgLocation, amt, prdName){
-  return Container(
-    height: 250,
-    width: 250,
-    child: Stack(
-      children: [
-        Container(
-          height: 250,
-          width: 250,
-          decoration: BoxDecoration(
-              borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(60.0),
-              ),
-              image: DecorationImage(
+Widget listItem(String imgLocation, amt, prdName, context){
+  return GestureDetector(
+    onTap: (){
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>Description(prdName: prdName, Amt: amt, imgLocation: imgLocation)));
+    },
+    child: Card(
+      color: Colors.white,
+      child: Container(
+        height: 200,
+        width: 150,
+        child: Column(
+          children: [
+            Container(
+              height: 150,
+              width: 150,
+              decoration: BoxDecoration(
+                image: DecorationImage(
                   fit: BoxFit.fill,
                   image: AssetImage(imgLocation)
-              )
-          ),
-        ),
-        Container(
-          alignment: Alignment.centerRight,
-          height: 100,
-          width: 250,
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          margin:const EdgeInsets.fromLTRB(0, 180, 0, 0),
-          decoration: const BoxDecoration(
-            color: Colors.purpleAccent,
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(60.0),
+                )
+              ),
             ),
-          ),
-
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Text(prdName, style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,)),
-              const SizedBox(width: 10,),
-              Text(amt,style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,))
-            ],
-          ),
-        )
-      ],
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(prdName, style: TextStyle(fontSize:20, fontWeight:FontWeight.bold),),
+                Text(amt)
+              ],
+            ),
+          ],
+        ),
+      ),
     ),
   );
 }
-Widget moisturizerList(){
+Widget moisturizerList(context){
   return ListView(
     shrinkWrap: true,
     scrollDirection: Axis.horizontal,
     physics: ScrollPhysics(),
     children: [
-      listItem("assests/m1.jpg", "400INR", "Nivea Men"),
+      listItem("assests/m1.jpg", "400INR", "Nivea Men",context),
       SizedBox(width: 30,),
-      listItem("assests/m2.jpg", "325INR", "The Derma")
+      listItem("assests/m2.jpg", "325INR", "The Derma", context)
     ],
   );
 }
 
-Widget sunScreenList(){
+Widget sunScreenList(context){
   return ListView(
     shrinkWrap: true,
     scrollDirection: Axis.horizontal,
     physics: ScrollPhysics(),
     children: [
-      listItem("assests/s1.jpg", "350INR", "Alpha Men"),
+      listItem("assests/s1.jpg", "350INR", "Alpha Men",context),
       SizedBox(width: 30,),
-      listItem("assests/s1.jpg", "350INR", "Alpha Men"),
+      listItem("assests/s1.jpg", "350INR", "Alpha Men",context),
     ],
   );
 }
