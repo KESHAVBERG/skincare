@@ -41,7 +41,7 @@ class _AgeState extends State<Age> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "TELL YOUR AGE",
+                  "TELL US YOUR AGE",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(

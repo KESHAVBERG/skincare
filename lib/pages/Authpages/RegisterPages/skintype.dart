@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:skincare/Commons/commons.dart';
+import 'package:skincare/pages/home.dart';
 
 class SkinType extends StatefulWidget {
   const SkinType({super.key});
@@ -8,6 +10,7 @@ class SkinType extends StatefulWidget {
 }
 
 class _SkinTypeState extends State<SkinType> {
+  var skinTypes = ['Normal', "Oily", "Dry", "Combination"];
   @override
   Widget build(BuildContext context) {
     final w = MediaQuery.of(context).size.width;
@@ -37,24 +40,45 @@ class _SkinTypeState extends State<SkinType> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "TELL YOUR AGE",
+                  "YOUR SKIN TYPE",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
                   height: 20,
                 ),
-
-                SizedBox(
-                  height: 20,
-                ),
+                ...skinTypes
+                    .map((e) => Container(
+                          alignment: Alignment.center,
+                          height: 60,
+                          width: w,
+                          margin: EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Commons.btnColors,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(30)),
+                          child: Text(
+                            e,
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.w700),
+                          ),
+                        ))
+                    .toList(),
                 Align(
                     alignment: Alignment.centerRight,
-                    child: TextButton(onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SkinType()));
-                    }, child: Text("Next ->", style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.pink.shade400
-                    ),)))
+                    child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Home()));
+                        },
+                        child: Text(
+                          "Finish ->",
+                          style: TextStyle(
+                              fontSize: 15, color: Colors.pink.shade400),
+                        )))
               ],
             ),
           )

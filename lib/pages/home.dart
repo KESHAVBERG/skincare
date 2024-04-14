@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:skincare/pages/ProductList/Moisterizers.dart";
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -44,6 +45,48 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
+            Container(
+              padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+              height: 300,
+              width: w,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text("MOISTURIZERS", style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),),
+                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 250,
+                    child:moisturizerList(),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(height: 20,),
+            Container(
+              padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+              height: 300,
+              width: w,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text("SUNSCREEN", style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),),
+                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 250,
+                    child:sunScreenList(),
+                  )
+                ],
+              ),
+            )
+
+
+
 
           ],
         ),
