@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:skincare/pages/Banner.dart';
+import 'package:skincare/pages/Authpages/Banner.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import "package:skincare/pages/login.dart";
+import 'package:skincare/pages/Authpages/login.dart';
 
 class BannerClass extends StatefulWidget {
   const BannerClass({super.key});

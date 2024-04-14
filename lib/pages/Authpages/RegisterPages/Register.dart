@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:skincare/pages/Register.dart';
+import 'package:skincare/pages/Authpages/RegisterPages/age.dart';
 
-import '../Commons/commons.dart';
+import '../../../Commons/commons.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+
+class Register extends StatefulWidget {
+  const Register({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Register> createState() => _RegisterState();
 }
 
-class _LoginState extends State<Login> {
+class _RegisterState extends State<Register> {
+
   @override
   Widget build(BuildContext context) {
     final w = MediaQuery.of(context).size.width;
@@ -27,10 +29,10 @@ class _LoginState extends State<Login> {
             width: 400,
             margin: EdgeInsets.fromLTRB(0, h/2+100, 0, 0),
             decoration: BoxDecoration(
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: AssetImage('assests/authbg.png')
-              )
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage('assests/authbg.png')
+                )
             ),
           ),
           Container(
@@ -42,12 +44,33 @@ class _LoginState extends State<Login> {
               children: [
                 TextFormField(
                   decoration: InputDecoration(
-                    hintText: "Email"
+                      hintText: "Name"
+                  ),
+                ),
+                TextFormField(
+                  decoration: InputDecoration(
+                      hintText: "Email"
                   ),
                 ),
                 TextFormField(
                   decoration: InputDecoration(
                       hintText: "Password"
+                  ),
+                ),
+                SizedBox(height: 20,),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Age()));
+                  },
+                  child: Container(
+                    height: 70,
+                    width: w,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: Commons.btnColors,
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Text("REGISTER", style: Commons.btnFont,),
                   ),
                 ),
                 SizedBox(height: 20,),
@@ -60,22 +83,6 @@ class _LoginState extends State<Login> {
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: Text("LOGIN", style: Commons.btnFont,),
-                ),
-                SizedBox(height: 20,),
-                GestureDetector(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Register()));
-                  },
-                  child: Container(
-                    height: 70,
-                    width: w,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: Commons.btnColors,
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    child: Text("REGISTER", style: Commons.btnFont,),
-                  ),
                 ),
 
               ],
